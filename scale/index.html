@@ -1,1 +1,106 @@
-<h1>scale</h1>
+<!DOCTYPE HTML>
+
+<head>
+    <title>Grinder Scale</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--<link rel="stylesheet" href="assets/css/main.css" />-->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <!-- <h1><a href="index.html">Solid State</a></h1> -->
+            <h1>定量磨豆电子秤</h1>
+        </header>
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2>使用说明 v3.0</h2>
+
+                    <p><span class="image left"><img
+                                src="{{ url_for('static', filename='assets/images/grinder_scale_v3.jpeg') }}"
+                                alt="" /></span>这，是一个外挂电子秤，可以让你拥有万元级别磨豆机才有的定量磨豆功能。</p>
+                    <p> </p>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <section>
+                        <h3 class="major">快速开始</h3>
+                        <p>
+                            <li>称重传感器精密， 托盘上的物品请勿超出量程（500g）。</li>
+                            <li>将磨豆秤插头插入220v插座， 将磨豆机插头插入磨豆机插座， 按下接通电源开关。可参照<a href="https://www.bilibili.com/video/BV14u411U7eL" target="_blank">此视频</a></li>
+                            <li>将磨豆机的磨豆开关打开</li>
+                            <li>旋钮可以进行多项操作： 左旋，右旋，按下确认。</li>
+                            <li>右旋操作按钮，切换至菜单2设置目标重量。按下旋钮进入设置状态， 再次按下保存并退出设置。</li>
+                            <li>左旋操作按钮，切换至菜单1，将接粉容器放置在秤上即开始磨豆。</li>
+                        </p>
+                        <h3 class="major">其他功能及注意事项</h3>
+                        <p>
+                            <li>菜单总共分为7开机后个菜单，当前菜单位置以屏幕底部大圆点表示。</li>
+                            <li>磨豆秤默认开启自动侦测容器功能，即检测到重量大于50g的容器放置在托盘后，即开始磨豆。 关闭该功能在菜单5（DETECT CONTAINER）中设置。
+                            </li>
+                            <li>磨豆秤默认开启自动偏差值计算功能， 即每次研磨后计算实际接粉与目标重量的偏差， 用于提高后续磨豆的精准度。</li>
+                            <li>如果不需要自动偏差值计算功能， 可将其在菜单4（AUTO GRIND OFFSET）中关闭。关闭后可以手动在菜单3中设置一个固定偏差值使用。</li>
+                            <li>关于校准：电子秤在制作完毕后会进行校准和测试，如果在使用过程中发现称量有误差，可以用内置自动校准程序进行校准，具体方法如下：
+                                <ul style="margin-left:40px;">
+                                    <li>准备一个定量砝码，最好是50g或100g，注意不要超出量程。</li>
+                                    <li>将秤的目标重量设置为砝码重量,比如你有一个50g的砝码,那么设置目标重量为50g,然后按下旋钮保存当前重量。</li>
+                                    <li>在菜单6（CALIBRATE SCALE）中按下旋钮， 屏幕显示进入校准模式。</li>
+                                    <li>按照屏幕提示，如果托盘有放物品，首先将托盘上的物品清空，清空后按下旋钮继续。</li>
+                                    <li>按照屏幕提示，将砝码放在托盘正中央，按旋钮继续。</li>
+                                    <li>程序会自动开始校准， 当屏幕显示校准完毕后， 方可使用。 使用前请务必再将目标重量设置为你需要的重量即可。</li>
+                                </ul>
+                            </li>
+                            <li>本人将会持续优化设计及软硬件，如有新固件放出，即可使用<a href="/scale/ota">OTA功能</a>来下载更新。</li>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="major">声明：</h3>
+                        <p>此电子秤为个人DIY作品，外壳由3d打印机打印，个人兴趣使然，且报以独乐不如众乐的心态设计开发此秤，瑕疵在所难免。请勿以市面成熟高端产品来对标。 感谢支持的朋友，让我们一起来品玩咖啡吧。
+                        </p>
+
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="inner">
+                <h2 class="major">保持联系</h2>
+                <p>B站 或 微信公众号搜索 奔IV程序猿</p>
+
+                <ul class="copyright">
+                    <li>&copy; WY Inc. All rights reserved.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
