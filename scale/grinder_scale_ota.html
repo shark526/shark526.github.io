@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0100)https://www.pythonanywhere.com/user/yuwei526/files/home/yuwei526/wechat/templates/grinder_scale.html -->
+<html>
+<head>
+    <title>Grinder Scale</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--<link rel="stylesheet" href="assets/css/main.css" />-->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <!-- <h1><a href="index.html">Solid State</a></h1> -->
+            <h1>定量磨豆电子秤</h1>
+        </header>
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2>使用说明 - OTA</h2>
+
+                    <p><span class="image left"><img src="{{ url_for('static', filename='assets/images/grinder_scale_v3.jpeg') }}"
+                                alt=""></span>这，是一个外挂电子秤，可以让你拥有万元级别磨豆机才有的定量磨豆功能。</p>
+                    <p> </p>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <section>
+                        <h3 class="major">OTA功能说明</h3>
+                        <p>
+                        </p>
+                        <li>在进行OTA升级前， 请先<a href="#releases">在此</a>下载对应的固件至您的电脑或手机。</li>
+                        <li>接通磨豆秤电源， 待屏幕初始化完毕后，打开您的电脑或手机端的WiFi设置， 寻找名为<b>Grinder Scale</b>的热点并点击连接,密码是：beautifulmonkey。</li>
+                        <img src="{{ url_for('static', filename='assets/images/connect_ap.jpeg') }}" alt="" style="width:400px">
+                        <li>打开浏览器， 并输入访问： 192.168.4.1/ota</li>
+
+                        <li>在弹出的对话框内输入用户名：admin，密码：admin123</li>
+                        <img src="{{ url_for('static', filename='assets/images/scale_ap_login.jpeg') }}" alt="" style="width:400px">
+                        <li>进入OTA页面后， 在Firmware栏下点击“选择文件” 按钮， 找到您在第一步下载好的固件，选定并确认。</li>
+                        <img src="{{ url_for('static', filename='assets/images/upload.jpeg') }}" alt="" style="width:400px">
+                        <li>选定固件后， 点击Firmware栏下“Update Firmware” 按钮开始上传固件。切记请不要在上传固件期间断电或操作磨豆秤。</li>
+                        <li>固件更新成功后， 磨豆秤会自动重启。更新成功后就可以照常使用了。</li>
+                        <p></p>
+                    </section>
+
+                    <section>
+                        <h3 class="major">说明：</h3>
+                        <p>因处于安全方面的考虑， 磨豆秤并没有赋予接入公网的功能，因此当您的电脑或手机接入 Grinder Scale 热点的时候， 当前设备暂时无法访问互联网， 一旦OTA完毕，
+                            设备会自动断开磨豆秤
+                            热点并接入之前可用网络， 方可正常使用。如果发现您的电脑或手机仍然连接在磨豆秤热点上， 请在WiFi设置中忽略此网络。
+                        </p>
+
+                    </section>
+
+                    <section id="releases">
+                        <h3 class="major">版本历史：</h3>
+                        <p><a href="{{ url_for('static', filename='assets/bin/smart_coffee_grinder_scale_v3.0.bin') }}">smart_coffee_grinder_scale_v3.0.bin</a>
+                        <p>说明:增加了接粉杯自动触发功能。 注意：容器重量需大于80g。</p></p>
+
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="inner">
+                <h2 class="major">保持联系</h2>
+                <p>B站 或 微信公众号搜索 奔IV程序猿</p>
+
+                <ul class="copyright">
+                    <li>© WY Inc. All rights reserved.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+
+</body>
+
+</html>
