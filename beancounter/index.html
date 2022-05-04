@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<head>
+    <title>MG BeanCounter</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!--<link rel="stylesheet" href="assets/css/main.css" />-->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <!-- <h1><a href="index.html">Solid State</a></h1> -->
+            <h1>MachineGun Bean Counter</h1>
+        </header>
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header style="padding-bottom:6em;">
+                <div class="inner">
+                    <h2>使用说明 v2.0</h2>
+
+                    <p><span class="image left"><img style="width:50%" src="{{ url_for('static', filename='assets/images/IMG_20211201_123306.jpg') }}"
+                                alt="" /></span>欢迎使用MachineGun Bean Counter， 此物乃受日常称豆之困扰及洋人数豆机之启发，遂DIY自用。
+                                应站友支持制作数台将便利与各位分享。本人能力有限所制之物或不堪入目，请海涵。</p>
+                    <p> </p>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <section>
+                        <h3 class="major">功能说明及注意事项</h3>
+                        <p>
+                            <li> 请务必使用附送的电源。</li>
+                            <li>称重传感器精密， 托盘上的物品请勿超出量程（500g）。</li>
+                            <li>该数豆是争对咖啡豆所设计，请不要用于其他物品的称重。</li>
+                            <li>将附送电源插入数豆机下方后侧电源插孔，按下旁边的开机键开机。</li>
+                            <li>开机后屏幕会显示开机信息， 之后会进入菜单。</li>
+                            <li>菜单总共分为6开机后个菜单，当前菜单位置以屏幕上大圆点表示。</li>
+                            <li>使用前请先切换至菜单2设置目标重量。</li>
+                            <li>旋钮可以进行多项操作： 左旋，右旋，按下确认。</li>
+                            <li>在设置目标重量菜单按下旋钮进入设置模式， 左右旋转旋钮调节目标重量。如果需要增加更多调整量请快速旋转旋钮。调整到需要的目标重量后， 再次按下旋钮确认。</li>
+                            <li>将菜单调至第一菜单， 在托盘上方放置接豆容器后， 按下旋钮开始数豆。</li>
+                            <li>数豆机有自动侦测容器功能，即检测到容器放置在托盘后，即开始数豆。 该功能在菜单3中设置。 容器重量可以自定义，以免误触发。在菜单4中设置容器重量。
+                            </li>
+                            <li>最后一个菜单为“一键清仓”， 如果豆仓内还有剩余咖啡豆且不想再定量分装， 使用该功能将豆仓内的咖啡豆排空。</li>
+                            <li>关于校准：电子秤在制作完毕后会进行校准和测试，如果在使用过程中发现称量有误差，可以用内置自动校准程序进行校准，具体方法如下：
+                                <ul style="margin-left:40px;">
+                                    <li>准备一个定量砝码，最好是50g或100g，注意不要超出量程。</li>
+                                    <li>将秤的目标重量设置为砝码重量,比如你有一个50g的砝码,那么设置目标重量为50g,然后按下旋钮保存当前重量。</li>
+                                    <li>在菜单5按下旋钮， 屏幕显示进入校准模式。</li>
+                                    <li>按照屏幕提示，如果托盘有放物品，首先将托盘上的物品清空，清空后按下旋钮继续。</li>
+                                    <li>按照屏幕提示，将砝码放在托盘正中央，按旋钮继续。</li>
+                                    <li>程序会自动开始校准， 当屏幕显示校准完毕后， 方可使用。 使用前请务必再将目标重量设置为你需要的重量即可。</li>
+                                </ul>
+                            </li>
+                            <li>本人将会持续优化设计及软硬件，如有新固件放出，即可使用<a href="/bc/ota">OTA功能</a>来下载更新。</li>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3 class="major">声明：</h3>
+                        <p>此电子秤为个人DIY作品，为降低成本部分组件由FDM 3d打印机打印，部分铝合金型材开槽钻孔纯手工打磨，个人兴趣使然，且报以独乐不如众乐的心态设计开发此数豆机，瑕疵在所难免。请勿以市面成熟高端产品来对标。 感谢支持的朋友，让我们一起来品玩咖啡吧。
+                        </p>
+
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="inner">
+                <h2 class="major">保持联系</h2>
+                <p>B站 或 微信公众号搜索 奔IV程序猿</p>
+
+                <ul class="copyright">
+                    <li>&copy; WY Inc. All rights reserved.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
