@@ -1,9 +1,5 @@
 // ==================================================
-// Project Name   :  Borne - Agency Portfolio Template
-// File           :  JS Base
-// Version        :  1.0.0
-// Last change    :  Sunday, 06 June 2021
-// ���ྫƷģ�壺http://www.jq22.com
+// Project Name   :  
 // ==================================================
 
 (function($) {
