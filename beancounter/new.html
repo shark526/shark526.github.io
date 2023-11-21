@@ -1,1 +1,100 @@
-shiiii
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grinder Scale</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel=stylesheet type=text/css href="../static/main.css">
+    <noscript>
+        <link rel="stylesheet" href="../static/noscript.css">
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <!-- <h1><a href="index.html">Solid State</a></h1> -->
+            <h1>MachineGun Bean Counter</h1>
+        </header>
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header style="padding-bottom:6em;">
+                <div class="inner">
+                    <h2>使用说明 v2.0</h2>
+
+                    <p><span class="image left"><img style="width:50%" src="../static/IMG_20211201_123306.jpg"
+                                alt="" /></span>欢迎使用MachineGun Bean Counter， 此物乃受日常称豆之困扰及洋人数豆机之启发，遂DIY自用。
+                                应站友支持制作数台将便利与各位分享。本人能力有限所制之物或不堪入目，请海涵。</p>
+                    <p> </p>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <section>
+                        <h3 class="major">OTA功能说明</h3>
+                        <p>
+                        </p>
+                        <li>在进行OTA升级前， 请先<a href="#releases">在此</a>下载对应的固件至您的电脑或手机。</li>
+                        <li>接通磨豆秤电源， 待屏幕初始化完毕后，打开您的电脑或手机端的WiFi设置， 寻找名为<b>MG_BeanCounter</b>的热点并点击连接,密码是：beautifulmonkey。</li>
+                        <img src="{{ url_for('static', filename='assets/images/connect_ap.jpeg') }}" alt="" style="width:400px">
+                        <li>打开浏览器， 并输入访问： 192.168.4.1/ota</li>
+
+                        <li>在弹出的对话框内输入用户名：admin，密码：admin123  注：2.X版本密码为“关于”页面右上角的数字</li>
+                        <img src="{{ url_for('static', filename='assets/images/scale_ap_login.jpeg') }}" alt="" style="width:400px">
+                        <li>进入OTA页面后， 在Firmware栏下点击“选择文件” 按钮， 找到您在第一步下载好的固件，选定并确认。</li>
+                        <img src="{{ url_for('static', filename='assets/images/upload.jpeg') }}" alt="" style="width:400px">
+                        <li>选定固件后， 点击Firmware栏下“Update Firmware” 按钮开始上传固件。切记请不要在上传固件期间断电或操作数豆机。</li>
+                        <li>固件更新成功后， 数豆机会自动重启。更新成功后就可以照常使用了。</li>
+                        <p></p>
+                    </section>
+
+                    <section>
+                        <h3 class="major">说明：</h3>
+                        <p>因处于安全方面的考虑， 磨豆秤并没有赋予接入公网的功能，因此当您的电脑或手机接入 MG_BeanCounter 热点的时候， 当前设备暂时无法访问互联网， 一旦OTA完毕，
+                            设备会自动断开数豆机
+                            热点并接入之前可用网络， 方可正常使用。如果发现您的电脑或手机仍然连接在数豆机热点上， 请在WiFi设置中忽略此网络。
+                        </p>
+
+                    </section>
+
+                    <section id="releases">
+                        <h3 class="major">版本历史：</h3>
+                        <p></a>
+                        
+
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="inner">
+                <h2 class="major">保持联系</h2>
+                <p>B站 或 微信公众号搜索 奔IV程序猿</p>
+
+                <ul class="copyright">
+                    <li>© WY Inc. All rights reserved.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="../static/jquery-3.4.1.min.js"></script>
+    <script src="../static/jquery-ui.min.js"></script>
+
+
+</body>
+
+</html>
