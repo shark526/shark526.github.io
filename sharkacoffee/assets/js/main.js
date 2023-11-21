@@ -3,7 +3,7 @@
 // File           :  JS Base
 // Version        :  1.0.0
 // Last change    :  Sunday, 06 June 2021
-// 更多精品模板：http://www.jq22.com
+// 锟斤拷锟洁精品模锟藉：http://www.jq22.com
 // ==================================================
 
 (function($) {
@@ -54,12 +54,12 @@
     /*------------------------------------------
         = pointer cursor
     -------------------------------------------*/
-    if ($('.pointer-wrap').length) {
-        const cursor = cursorDot({})
-        cursor.over("a, button", {
-            scale: '1.4'
-        });
-    }
+    // if ($('.pointer-wrap').length) {
+    //     const cursor = cursorDot({})
+    //     cursor.over("a, button", {
+    //         scale: '1.4'
+    //     });
+    // }
 
 
 
