@@ -12,3 +12,10 @@
 .brand_logo svg{
     width:60px;
 }
+.logo-char{
+    font-size: 40px;
+    line-height: 35px;
+    color: #eeedf4;
+    vertical-align: bottom;
+
+}
