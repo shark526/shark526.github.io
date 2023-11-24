@@ -10,7 +10,10 @@
     width: 160px;
 }
 .brand_logo svg{
-    width:60px;
+    width:50px;
+}
+.brand_logo img{
+    width:300px;
 }
 .logo-char{
     font-size: 40px;
@@ -18,4 +21,17 @@
     color: #eeedf4;
     vertical-align: bottom;
 
+}
+.brand_logo {
+    width: 335px;
+}
+.main_menu {
+    margin-left: 255px;
+}
+.main_slider .slick-dots li {
+    height: 50%;
+}
+
+.testimonial_carousel_wrap {
+    width: 1500px;
 }
