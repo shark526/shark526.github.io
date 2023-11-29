@@ -65,7 +65,11 @@
 .portfolio_fullimage_layout .item_content {
     right: 20px;
     padding: 20px 25px 17px 25px;
+    bottom: 20px;
 }   
 .portfolio_fullimage_layout .item_title {
     margin-bottom: 0px;
+}
+.logo-char {
+    color: #bababa;
 }
