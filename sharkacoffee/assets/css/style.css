@@ -24,6 +24,7 @@
 }
 .brand_logo {
     width: 335px;
+    white-space: nowrap;
 }
 .main_menu {
     margin-left: 255px;
