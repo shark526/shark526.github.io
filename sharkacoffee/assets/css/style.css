@@ -27,7 +27,7 @@
     white-space: nowrap;
 }
 .main_menu {
-    margin-left: 255px;
+    /* margin-left: 255px; */
 }
 .main_slider .slick-dots li {
     height: 50%;
