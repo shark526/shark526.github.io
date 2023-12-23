@@ -78,3 +78,6 @@
     width: 100%;
 }
 .main_slider p{background-color:rgba(0,0,0,0.2)}
+.average_area .mb-0{
+    margin: 20px;
+}
