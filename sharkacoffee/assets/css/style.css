@@ -84,3 +84,6 @@
 .average_area .mb-0{
     margin: 20px;
 }
+.compair_attributes th, .compair_attributes td{
+    padding:5px;
+}
