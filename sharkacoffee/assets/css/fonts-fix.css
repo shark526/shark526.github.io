@@ -1,0 +1,121 @@
+/* ========================================
+   字体文件修复
+   ======================================== */
+/*
+   原始 style.css 引用了14个不存在的Calibre字体文件
+   这个文件只使用实际存在的4个字体文件
+*/
+
+/* 重置所有 Calibre 字体声明 */
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Light"), url("../fonts/calibre/Calibre-Light.ttf") format("truetype");
+    font-weight: 100; /* Thin - 使用 Light 代替 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Light"), url("../fonts/calibre/Calibre-Light.ttf") format("truetype");
+    font-weight: 300; /* Light - 存在 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Regular"), url("../fonts/calibre/Calibre-Regular.ttf") format("truetype");
+    font-weight: 400; /* Regular - 存在 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Medium"), url("../fonts/calibre/Calibre-Medium.ttf") format("truetype");
+    font-weight: 500; /* Medium - 存在 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Semibold"), url("../fonts/calibre/Calibre-Semibold.ttf") format("truetype");
+    font-weight: 600; /* Semibold - 存在 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Semibold"), url("../fonts/calibre/Calibre-Semibold.ttf") format("truetype");
+    font-weight: 700; /* Bold - 使用 Semibold 代替 */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Semibold"), url("../fonts/calibre/Calibre-Semibold.ttf") format("truetype");
+    font-weight: 900; /* Black - 使用 Semibold 代替 */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* 为所有 italic 字重使用对应的 normal 字体 */
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Light"), url("../fonts/calibre/Calibre-Light.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Light"), url("../fonts/calibre/Calibre-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Regular"), url("../fonts/calibre/Calibre-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Medium"), url("../fonts/calibre/Calibre-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Semibold"), url("../fonts/calibre/Calibre-Semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Semibold"), url("../fonts/calibre/Calibre-Semibold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Calibre";
+    src: local("Calibre Semibold"), url("../fonts/calibre/Calibre-Semibold.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
