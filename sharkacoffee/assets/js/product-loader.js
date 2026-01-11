@@ -44,6 +44,8 @@
           if (this.currentProductId) {
             this.loadProduct(this.currentProductId);
           }
+          // Reload product menu when language changes
+          this.loadProductMenu();
         });
         
         // Load product menu
