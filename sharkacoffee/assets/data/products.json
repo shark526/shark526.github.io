@@ -1,0 +1,343 @@
+{
+  "products": {
+    "mg-beancounter": {
+      "id": "mg-beancounter",
+      "en": {
+        "name": "BeanCounter-Turbo",
+        "shortName": "BC-Turbo",
+        "tagline": "Turbo-Speed Bean Dosing with Precision",
+        "price": "From ¥2299.00",
+        "description": "Introducing BeanCounter-Turbo, the efficiency powerhouse for coffee enthusiasts and professionals. After 9 months of refinement based on user feedback, BC-Turbo redefines coffee efficiency with three core upgrades: Turbo Gear technology (20g in 5 seconds with ±0.2g accuracy), full-color touchscreen interface, and minimalist industrial design with solid CNC aluminum base. Enhanced bean storage with 50% improved airtight seal locks in freshness. Perfect for busy mornings or high-volume cafes.",
+        "detailImages": [
+          "assets/images/shop/bc-turbo/details/bc_black_3.jpg",
+          "assets/images/shop/bc-turbo/details/bc_black_4.jpg",
+          "assets/images/shop/bc-turbo/details/bc_black_with_hopper.jpg"
+        ],
+        "images": [
+          {
+            "thumb": "assets/images/shop/bc-turbo/gallery/bc_black_1.jpg",
+            "full": "assets/images/shop/bc-turbo/gallery/bc_black_1.jpg"
+          },
+          {
+            "thumb": "assets/images/shop/bc-turbo/gallery/bc_black_2.jpg",
+            "full": "assets/images/shop/bc-turbo/gallery/bc_black_2.jpg"
+          },
+          {
+            "thumb": "assets/images/shop/bc-turbo/gallery/bc_black_and_white.jpg",
+            "full": "assets/images/shop/bc-turbo/gallery/bc_black_and_white.jpg"
+          }
+        ],
+        "package": [
+          "Bean doser",
+          "Additional bean silo",
+          "Dosing Cup",
+          "Dosing Funnel",
+          "220v AC/DC Power Adapter"
+        ],
+        "note": "The top cover plate and bean transport core are created by 3D print, which may have small surface variations and imperfections that do not impact the function of the device. This is not a artwork level product, so please be aware of that if you mind.",
+        "specifications": {
+          "Model": "BC-Turbo",
+          "Color": "Black / Silver",
+          "Dimensions": "L:125 mm W:100 mm H:260 mm",
+          "Product Weight": "1450 g",
+          "Material": "CNC Aluminum Alloy, PLA+",
+          "Battery": "2800mAh",
+          "Battery Life": "~11.67 hours continuous operation, ~47.5 hours standby",
+          "Maximum Capacity(with additional bean silo)": "230 g/400 g",
+          "Minimum Weight": "0.1 g",
+          "Accuracy": "± 0.2 g",
+          "Dosing Speed": "4 g / sec (20g in 5 seconds)",
+          "Readability": "0.1 g",
+          "Repeatability": "0.1 g",
+          "Display": "Full-Color Touchscreen",
+          "Hopper": "400 g",
+          "Airtight Performance": "50% improved seal",
+          "Modes": "Manual Dosing Mode/Auto Dosing Mode"
+        },
+        "shipping": "In-stock orders ship within 2 days. Pre-orders2 to 3 weeks to ship after purchase. Shipping free in China.",
+        "warranty": {
+          "homeUse": "1 years from date of delivery for anything that could be deemed a manufacturing defect or malfunction. Does not apply to normal wear & tear. When in doubt, contact us and we'll be happy to help.",
+          "commercialUse": "6mo from date of delivery for anything that could be deemed a manufacturing error or malfunction. Does not apply to normal wear & tear.",
+          "accessories": "60 days from date of delivery for manufacturing defect. Does not apply to normal wear & tear or misuse. When in doubt, contact us and we'll be happy to help.",
+          "exchanges": "We only replace items if they are defective or damaged. If you need to exchange it for the same item, contact us and we will work with you to send the package back to its place of origin.",
+          "shippingReturn": "To return your product, please contact us for the correct shipping location depending on where you live. You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund. Depending on where you live, the time it may take for your exchanged product to reach you, may vary."
+        },
+        "manualUrl": "mg_beancounter_manual.html"
+      },
+      "zh": {
+        "name": "BeanCounter-Turbo 数豆机",
+        "shortName": "BC-Turbo",
+        "tagline": "极速引擎 精准称豆",
+        "price": "¥2299.00",
+        "description": "早晨做咖啡，时间搞不赢？SharkaCoffee推出新款数豆机BeanCounter-Turbo，集效率、颜值于一身。历经9个多月打磨，汲取用户及设计师反馈，全新升级三大核心：Turbo Gear极速引擎（20g咖啡豆仅需5秒，±0.2g精准度）、全彩触控屏智能交互、实心CNC铝合金底座极简工业美学。全新豆仓设计，气密性提升50%，锁住更多新鲜。无论个人玩家还是咖啡店，BC-Turbo都能使你的咖啡制作更高效、优雅。美好的早晨，从一杯优雅的咖啡开始。",
+        "detailImages": [
+          "assets/images/shop/bc-turbo/details/bc_black_3.jpg",
+          "assets/images/shop/bc-turbo/details/bc_black_4.jpg",
+          "assets/images/shop/bc-turbo/details/bc_black_with_hopper.jpg"
+        ],
+        "images": [
+          {
+            "thumb": "assets/images/shop/bc-turbo/gallery/bc_black_1.jpg",
+            "full": "assets/images/shop/bc-turbo/gallery/bc_black_1.jpg"
+          },
+          {
+            "thumb": "assets/images/shop/bc-turbo/gallery/bc_black_2.jpg",
+            "full": "assets/images/shop/bc-turbo/gallery/bc_black_2.jpg"
+          },
+          {
+            "thumb": "assets/images/shop/bc-turbo/gallery/bc_black_and_white.jpg",
+            "full": "assets/images/shop/bc-turbo/gallery/bc_black_and_white.jpg"
+          }
+        ],
+        "package": [
+          "分豆器",
+          "附加豆仓",
+          "称量杯",
+          "称量漏斗",
+          "220v AC/DC 电源适配器"
+        ],
+        "note": "顶盖板和豆子传送核心由3D打印制成，可能存在不影响设备功能的小表面变化和瑕疵。这不是艺术品级别的产品，如果您介意请知悉。",
+        "specifications": {
+          "型号": "BC-Turbo",
+          "颜色": "黑色 / 银色",
+          "尺寸": "长:125 mm 宽:100 mm 高:260 mm",
+          "产品重量": "1450 g",
+          "材质": "CNC铝合金, PLA+",
+          "电池": "2800mAh",
+          "续航时间": "连续运行约11.67小时，待机约47.5小时",
+          "最大容量(带附加豆仓)": "230 g/400 g",
+          "最小重量": "0.1 g",
+          "精度": "± 0.2 g",
+          "称量速度": "4 g / 秒 (20g仅需5秒)",
+          "可读性": "0.1 g",
+          "重复性": "0.1 g",
+          "显示屏": "全彩触控屏",
+          "豆仓": "400 g",
+          "气密性能": "提升50%",
+          "模式": "手动称量模式/自动称量模式"
+        },
+        "shipping": "现货订单两天内发货。预定订单购买后2至3周发货。中国境内免运费。",
+        "warranty": {
+          "homeUse": "自交付之日起1年，适用于任何可视为制造缺陷或故障的情况。不适用于正常磨损。如有疑问，请联系我们，我们很乐意提供帮助。",
+          "commercialUse": "自交付之日起6个月，适用于任何可视为制造错误或故障的情况。不适用于正常磨损。",
+          "accessories": "自交付之日起60天，适用于制造缺陷。不适用于正常磨损或误用。如有疑问，请联系我们，我们很乐意提供帮助。",
+          "exchanges": "我们仅在物品有缺陷或损坏的情况下更换。如果您需要更换相同的物品，请联系我们，我们将与您一起将包裹寄回原产地。",
+          "shippingReturn": "要退回产品，请根据您的居住地联系我们获取正确的运输地点。您将负责支付退回物品的运费。运费不可退还。如果您收到退款，退货运费将从您的退款中扣除。根据您的居住地，您的交换产品到达您手中的时间可能会有所不同。"
+        },
+        "manualUrl": "mg_beancounter_manual_cn.html"
+      }
+    },
+    "sc-grinder-scale": {
+      "id": "sc-grinder-scale",
+      "en": {
+        "name": "SC-Grinder Scale",
+        "shortName": "GRINDER-SCALE",
+        "tagline": "Smart scale for grinder-by-weight",
+        "price": "From ¥599.00",
+        "description": "Collaborate with the grinder for continual cup grinding, high precise weighting and auto offset calculation to speed-up the process of coffee making.",
+        "images": [
+          {
+            "thumb": "assets/images/shop/grinder-scale/gallery/grinder_scale.webp",
+            "full": "assets/images/shop/grinder-scale/gallery/grinder_scale.webp"
+          },
+          {
+            "thumb": "assets/images/shop/grinder-scale/gallery/gs_b_1.webp",
+            "full": "assets/images/shop/grinder-scale/gallery/gs_b_1.webp"
+          },
+          {
+            "thumb": "assets/images/shop/grinder-scale/gallery/gs_w_1.webp",
+            "full": "assets/images/shop/grinder-scale/gallery/gs_w_1.webp"
+          }
+        ],
+        "package": [
+          "Grinder Scale",
+          "USB Type-C Cable",
+          "Silicone Pad"
+        ],
+        "note": "This scale is designed to work with manual grinders or motorized grinders with external trigger capability. Some modifications to your grinder may be required.",
+        "specifications": {
+          "Model": "SCGS01",
+          "Color": "Black / White",
+          "Dimensions": "W:110 mm L:110 mm H:22 mm",
+          "Product Weight": "280 g ± 10 g",
+          "Material": "ABS, Aluminum",
+          "Maximum Capacity": "500 g",
+          "Minimum Weight": "0.1 g",
+          "Accuracy": "± 0.2 g",
+          "Readability": "0.01 g",
+          "Display": "OLED",
+          "Power": "USB Type-C 5V",
+          "Modes": "Manual Mode/Auto Mode/GBW Mode"
+        },
+        "shipping": "In-stock orders ship within 2 days. Pre-orders1 to 2 weeks to ship after purchase. Shipping free in China.",
+        "warranty": {
+          "homeUse": "1 years from date of delivery for anything that could be deemed a manufacturing defect or malfunction. Does not apply to normal wear & tear. When in doubt, contact us and we'll be happy to help.",
+          "commercialUse": "6mo from date of delivery for anything that could be deemed a manufacturing error or malfunction. Does not apply to normal wear & tear.",
+          "accessories": "60 days from date of delivery for manufacturing defect. Does not apply to normal wear & tear or misuse. When in doubt, contact us and we'll be happy to help.",
+          "exchanges": "We only replace items if they are defective or damaged. If you need to exchange it for the same item, contact us and we will work with you to send the package back to its place of origin.",
+          "shippingReturn": "To return your product, please contact us for the correct shipping location depending on where you live. You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund. Depending on where you live, the time it may take for your exchanged product to reach you, may vary."
+        },
+        "manualUrl": "sc_grinder_scale_manual.html"
+      },
+      "zh": {
+        "name": "SC-定重秤",
+        "shortName": "定重秤",
+        "tagline": "智能定重磨豆秤",
+        "price": "¥599.00起",
+        "description": "与您的磨豆机配合使用连续研磨出杯。高精度以及自动偏移量校准功能加速出杯流程。",
+        "images": [
+          {
+            "thumb": "assets/images/shop/grinder-scale/gallery/grinder_scale.webp",
+            "full": "assets/images/shop/grinder-scale/gallery/grinder_scale.webp"
+          },
+          {
+            "thumb": "assets/images/shop/grinder-scale/gallery/gs_b_1.webp",
+            "full": "assets/images/shop/grinder-scale/gallery/gs_b_1.webp"
+          },
+          {
+            "thumb": "assets/images/shop/grinder-scale/gallery/gs_w_1.webp",
+            "full": "assets/images/shop/grinder-scale/gallery/gs_w_1.webp"
+          }
+        ],
+        "package": [
+          "定重秤",
+          "USB Type-C 数据线",
+          "硅胶垫"
+        ],
+        "note": "此秤设计用于配合手动磨豆机或具有外部触发功能的电动磨豆机使用。可能需要对您的磨豆机进行一些改装。",
+        "specifications": {
+          "型号": "SCGS01",
+          "颜色": "黑色 / 白色",
+          "尺寸": "宽:110 mm 长:110 mm 高:22 mm",
+          "产品重量": "280 g ± 10 g",
+          "材质": "ABS, 铝合金",
+          "最大容量": "500 g",
+          "最小重量": "0.1 g",
+          "精度": "± 0.2 g",
+          "可读性": "0.01 g",
+          "显示屏": "OLED",
+          "电源": "USB Type-C 5V",
+          "模式": "手动模式/自动模式/GBW模式"
+        },
+        "shipping": "现货订单两天内发货。预定订单购买后1至2周发货。中国境内免运费。",
+        "warranty": {
+          "homeUse": "自交付之日起1年，适用于任何可视为制造缺陷或故障的情况。不适用于正常磨损。如有疑问，请联系我们，我们很乐意提供帮助。",
+          "commercialUse": "自交付之日起6个月，适用于任何可视为制造错误或故障的情况。不适用于正常磨损。",
+          "accessories": "自交付之日起60天，适用于制造缺陷。不适用于正常磨损或误用。如有疑问，请联系我们，我们很乐意提供帮助。",
+          "exchanges": "我们仅在物品有缺陷或损坏的情况下更换。如果您需要更换相同的物品，请联系我们，我们将与您一起将包裹寄回原产地。",
+          "shippingReturn": "要退回产品，请根据您的居住地联系我们获取正确的运输地点。您将负责支付退回物品的运费。运费不可退还。如果您收到退款，退货运费将从您的退款中扣除。根据您的居住地，您的交换产品到达您手中的时间可能会有所不同。"
+        },
+        "manualUrl": "sc_grinder_scale_manual_cn.html"
+      }
+    },
+    "coffeeder": {
+      "id": "coffeeder",
+      "en": {
+        "name": "Coffeeder Slow Bean Feeder",
+        "shortName": "Coffeeder",
+        "tagline": "Gear-Driven Slow Bean Feeder for Coffee Grinders",
+        "price": "From ¥398.00",
+        "description": "The Coffeeder is an innovative slow bean feeding device designed to work with coffee grinders. By controlling the bean feeding speed, it reduces fines production, improves coffee flavor, and prevents grinder jamming when grinding light roasts. Perfect for grinders that struggle with lighter roasted beans.",
+        "detailImages": [
+          "assets/images/shop/coffeeder/details/coffeeder_detail_1.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_2.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_3.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_4.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_5.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_6.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_7.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_8.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_9.jpg"
+        ],
+        "images": [
+          {
+            "thumb": "assets/images/shop/coffeeder/gallery/coffeeder_silver_thumb.webp",
+            "full": "assets/images/shop/coffeeder/gallery/coffeeder_silver_full.webp"
+          },
+          {
+            "thumb": "assets/images/shop/coffeeder/gallery/coffeeder_black_thumb.webp",
+            "full": "assets/images/shop/coffeeder/gallery/coffeeder_black_full.webp"
+          }
+        ],
+        "package": [
+          "1x Coffeeder Slow Bean Feeder (Silver or Black)",
+          "1x grinder adapter ring (to fit grinder bean entry)"
+        ],
+        "note": "Available in Silver and Black. Please specify your preferred color when ordering. If your grinder bean entry diameter is larger than 82mm, or is irregularly shaped or tilted, we can customize a specific grinder adapter ring for free. For more grinder compatibility needs, please contact us.",
+        "specifications": {
+          "Power Supply": "Rechargeable Li-ion Battery",
+          "Charging Port": "Type-C USB",
+          "Battery Life": "Up to 20 hours continuous operation",
+          "Speed Control": "Stepless variable speed adjustment",
+          "Drive System": "Precision gear mechanism",
+          "Material": "Food-grade plastic and stainless steel",
+          "Available Colors": "Silver, Black",
+          "Dimensions": "Compact design for standard grinder hoppers",
+          "Weight": "Lightweight and portable"
+        },
+        "shipping": "In-stock orders ship within 2 days. Free shipping within China. International shipping available, rates calculated at checkout.",
+        "warranty": {
+          "homeUse": "1 year from date of delivery for any issue deemed a manufacturing defect or malfunction. Does not apply to normal wear and tear. If in doubt, reach out to us and we'll be happy to help.",
+          "commercialUse": "6 months from date of delivery for any issue deemed a manufacturing error or malfunction. Does not apply to normal wear and tear.",
+          "accessories": "60 days from date of delivery for manufacturing defects. Does not apply to normal wear and tear or misuse. If in doubt, reach out to us and we'll be happy to help.",
+          "exchanges": "We only replace items if they are defective or damaged. If you need to exchange it for the same item, contact us and we'll work with you to ship the package back to its origin.",
+          "shippingReturn": "To return a product, contact us for the correct shipping location based on where you live. You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are non-refundable. If you receive a refund, the cost of return shipping will be deducted from your refund. Depending on where you live, the time it may take for your exchanged product to reach you may vary."
+        },
+        "manualUrl": ""
+      },
+      "zh": {
+        "name": "Coffeeder 慢速下豆器",
+        "shortName": "Coffeeder",
+        "tagline": "齿轮驱动的磨豆机慢速下豆装置",
+        "price": "¥398起",
+        "description": "Coffeeder 是一款创新的慢速下豆装置，专为配合咖啡磨豆机使用而设计。通过控制下豆速度，可以减少研磨过程中产生的细粉，改善咖啡风味，并防止磨豆机在研磨浅烘焙咖啡豆时卡死。特别适合处理浅烘焙豆子时性能不足的磨豆机。",
+        "detailImages": [
+          "assets/images/shop/coffeeder/details/coffeeder_detail_1.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_2.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_3.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_4.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_5.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_6.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_7.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_8.jpg",
+          "assets/images/shop/coffeeder/details/coffeeder_detail_9.jpg"
+        ],
+        "images": [
+          {
+            "thumb": "assets/images/shop/coffeeder/gallery/coffeeder_silver_thumb.webp",
+            "full": "assets/images/shop/coffeeder/gallery/coffeeder_silver_full.webp"
+          },
+          {
+            "thumb": "assets/images/shop/coffeeder/gallery/coffeeder_black_thumb.webp",
+            "full": "assets/images/shop/coffeeder/gallery/coffeeder_black_full.webp"
+          }
+        ],
+        "package": [
+          "1个 Coffeeder 慢速下豆器（银色或黑色）",
+          "1个 磨豆机转接环（适配磨豆机豆仓入口）"
+        ],
+        "note": "提供银色和黑色两种颜色可选。订购时请注明您偏好的颜色。如果磨豆机入豆口直径大于82mm，或异形或者整体为倾斜，我们可免费定制一款指定磨豆机转接环,如有更多磨豆机适配需求请联系我们。",
+        "specifications": {
+          "供电方式": "可充电锂离子电池",
+          "充电接口": "Type-C USB",
+          "续航时间": "连续工作时长达20小时",
+          "调速方式": "无级变速调节",
+          "驱动系统": "精密齿轮机构",
+          "材质": "食品级塑料和不锈钢",
+          "可选颜色": "银色、黑色",
+          "尺寸": "紧凑设计，适配标准磨豆机豆仓",
+          "重量": "轻便便携"
+        },
+        "shipping": "现货订单两天内发货。中国境内免运费。支持国际运输，运费结算时计算。",
+        "warranty": {
+          "homeUse": "自交付之日起1年，适用于任何可视为制造缺陷或故障的情况。不适用于正常磨损。如有疑问，请联系我们，我们很乐意提供帮助。",
+          "commercialUse": "自交付之日起6个月，适用于任何可视为制造错误或故障的情况。不适用于正常磨损。",
+          "accessories": "自交付之日起60天，适用于制造缺陷。不适用于正常磨损或误用。如有疑问，请联系我们，我们很乐意提供帮助。",
+          "exchanges": "我们仅在物品有缺陷或损坏的情况下更换。如果您需要更换相同的物品，请联系我们，我们将与您一起将包裹寄回原产地。",
+          "shippingReturn": "要退回产品，请根据您的居住地联系我们获取正确的运输地点。您将负责支付退回物品的运费。运费不可退还。如果您收到退款，退货运费将从您的退款中扣除。根据您的居住地，您的交换产品到达您手中的时间可能会有所不同。"
+        },
+        "manualUrl": ""
+      }
+    }
+  }
+}

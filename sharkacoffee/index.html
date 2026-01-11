@@ -5,8 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Content Security Policy - 允许内联脚本和 eval (用于开发环境) -->
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
   <title>Sharka Coffee</title>
-  <link rel="icon" type="image/png" href="assets/images/logo/LOGO.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logo/favicon.svg">
   <!-- fraimwork - css include -->
   <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
   <!-- icon font - css include -->
@@ -20,13 +23,15 @@
   <link rel="stylesheet" type="text/css" href="assets/css/nice-select.css">
   <!-- custom - css include -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- i18n - js include (load before body for immediate translation) -->
+  <script src="assets/js/i18n.js"></script>
 </head>
 
 <body>
   <!-- body_wrap - start -->
   <div class="body_wrap">
     <!-- backtotop - start -->
-    <div class="backtotop"><a href="#" class="scroll">Back to top </a></div>
+    <div class="backtotop"><a href="#" class="scroll" data-i18n="footer.backToTop">Back to top </a></div>
     <!-- backtotop - end -->
     <!-- preloader - start -->
     <!-- <div id="preloader"></div> -->
@@ -34,10 +39,7 @@
     <header class="header_section">
       <div class="header_container">
         <div class="brand_logo"><a class="brand_link" href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-17 -13 34 34">
-              <path
-                d="M 0 0 L -8 -7 L -10 -7 L -1 1 L -1 12 L 1 12 L 1 1 L 10 -7 L 8 -7 L 0 0 L 0 0 M -6 -7 L -6 -8 L -14 -8 L -14 -7 L -6 -7 L -6 -7 M 6 -7 L 14 -7 L 14 -8 L 6 -8 L 6 -7 L 6 -7 M -17 -6 L -6 5 L -1 1 L -1 3 L -7 12 L -17 -6 M 1 1 L 6 5 L 17 -6 L 7 12 L 1 3 M -5 12 L 5 12 L 5 13 L -5 13 L -5 12 M -9 16 L 9 16 L 9 15 L -9 15 L -9 16" fill="#bababa" />
-            </svg>
+            <img src="assets/images/logo/logo.svg" alt="Sharka Coffee Logo">
             <span class="logo-char">SHARKA COFFEE</span>
           </a></div>
         <nav class="main_menu navbar navbar-expand-lg">
@@ -46,19 +48,17 @@
             aria-label="Toggle navigation"><i class="fal fa-bars"></i></button>
           <div class="main_menu_inner collapse navbar-collapse" id="main_menu_dropdown">
             <ul class="main_menu_list ul_li_center">
-              <li class="active dropdown"><a class="nav-link text-uppercase" href="index.html" id="home_submenu"
+              <li class="active dropdown"><a class="nav-link text-uppercase" href="index.html" id="home_submenu" data-i18n="nav.home"
                   >Home </a>
               </li>
               <li class="dropdown"><a class="nav-link text-uppercase" href="#" id="pages_submenu" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">Products </a>
-                <ul class="submenu dropdown-menu" aria-labelledby="pages_submenu">
-                  <li><a href="mg_beancounter_details.html">MG-BEANCOUNTER</a></li>
-                  <li><a href="sc_grinder_scale_details.html">GRINDER-SCALE</a></li>
-                  <!-- <li><a href="grinder-anti-statics-details.html">ANTI-STATICS</a></li> -->
+                  data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.products">Products </a>
+                <ul class="submenu dropdown-menu" aria-labelledby="pages_submenu" id="product-menu">
+                  <!-- Products will be dynamically loaded -->
                 </ul>
               </li>
-              <li><a class="nav-link text-uppercase" href="#social">Contact</a></li>
-              <li><a class="nav-link text-uppercase" href="index_cn.html">>中文<</a></li>
+              <li><a class="nav-link text-uppercase" href="#social" data-i18n="nav.contact">Contact</a></li>
+              <li><a class="nav-link text-uppercase" href="#" data-lang-toggle data-i18n="nav.language">>中文<</a></li>
             </ul>
           </div>
         </nav>
@@ -81,7 +81,7 @@
             <a class="btn_text" href="about.html"><span>Read More</span><i class="fal fa-long-arrow-right"></i></a>
           </div> -->
           <div class="social_wrap">
-            <h4>Follow Us</h4>
+            <h4 data-i18n="footer.followUs">Follow Us</h4>
             <ul class="social_primary ul_li">
               <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
               <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
@@ -99,19 +99,19 @@
           <div class="slider_item d-flex align-items-center"
             style="background-image: url(assets/images/banner/banner-bc.webp)">
             <div class="slider_content">
-              <h4 data-animation="fadeInUp2" data-delay=".2s">SC-Bean Doser</h4>
-              <p data-animation="fadeInUp2" data-delay=".4s">precisely dosing the beans to weight.Parse a bag of fresh coffee to single-doses, or use to dose before grinding. </p>
-              <div data-animation="fadeInUp2" data-delay=".6s"><a class="btn btn_white" href="mg_beancounter_details.html">Detail</a>
+              <h4 data-animation="fadeInUp2" data-delay=".2s" data-i18n="products.beanDoser">SC-Bean Doser</h4>
+              <p data-animation="fadeInUp2" data-delay=".4s" data-i18n="slider.beanDoserDesc">precisely dosing the beans to weight.Parse a bag of fresh coffee to single-doses, or use to dose before grinding. </p>
+              <div data-animation="fadeInUp2" data-delay=".6s"><a class="btn btn_white" href="product-detail.html?id=mg-beancounter" data-i18n="slider.detailBtn">Detail</a>
               </div>
             </div>
           </div>
           <div class="slider_item d-flex align-items-center"
             style="background-image: url(assets/images/banner/banner-gs.webp)">
             <div class="slider_content">
-              <h4 data-animation="fadeInUp2" data-delay=".2s">SC-Grinder Scale</h4>
-              <p data-animation="fadeInUp2" data-delay=".4s">Collaborate with the grinder for continual cup grinding,
+              <h4 data-animation="fadeInUp2" data-delay=".2s" data-i18n="products.grinderScaleFull">SC-Grinder Scale</h4>
+              <p data-animation="fadeInUp2" data-delay=".4s" data-i18n="slider.grinderScaleDesc">Collaborate with the grinder for continual cup grinding,
                 high precise weighting and auto offset caculation to speed-up the process of coffee making.</p>
-              <div data-animation="fadeInUp2" data-delay=".6s"><a class="btn btn_white" href="sc_grinder_scale_details.html">Detail</a>
+              <div data-animation="fadeInUp2" data-delay=".6s"><a class="btn btn_white" href="product-detail.html?id=sc-grinder-scale" data-i18n="slider.detailBtn">Detail</a>
               </div>
             </div>
           </div>
@@ -149,12 +149,12 @@
           <div class="row justify-content-lg-between">
             <div class="col-lg-5 col-md-5">
               <div class="section_title">
-                <h2 class="small_title">About us <span class="line"></span></h2>
+                <h2 class="small_title" data-i18n="about.title">About us <span class="line"></span></h2>
                 <h3 class="big_title text_effect_wrap">
                   <span class="text_effect_wrap1">
-                    <span class="text_effect_wrap3"> Targeting </span>
-                    <span class="text_effect_wrap3"> make coffee </span>
-                    <span class="text_effect_wrap3">easier.</span>
+                    <span class="text_effect_wrap3" data-i18n="about.subtitle1"> Targeting </span>
+                    <span class="text_effect_wrap3" data-i18n="about.subtitle2"> make coffee </span>
+                    <span class="text_effect_wrap3" data-i18n="about.subtitle3">easier.</span>
                   </span>
                 </h3>
               </div>
@@ -162,10 +162,10 @@
             <div class="col-lg-6 col-md-7">
               <div class="about_content">
                 <h3 class="about_title text_effect_wrap">
-                  <span class="text_effect_wrap1">
+                  <span class="text_effect_wrap1" data-i18n="about.heading">
                     As the coffee lovers, we encounter many pain points every day during the coffee making...</span>
                 </h3>
-                <p class="mb-0">Inspired by the excellent tools in the market, we aim to build our own tools at a
+                <p class="mb-0" data-i18n="about.description">Inspired by the excellent tools in the market, we aim to build our own tools at a
                   cost-effective price. We believe that what we are doing now could accelerate the spread and promotion of coffee culture.
                 </p>
               </div>
@@ -182,9 +182,9 @@
           <div class="row justify-content-lg-between">
             <div class="col-lg-12 col-md-6">
               <div class="section_title">
-                <h2 class="small_title">showcase <span class="line"></span></h2>
+                <h2 class="small_title" data-i18n="portfolio.title">showcase <span class="line"></span></h2>
                 <h3 class="big_title mb-0 text_effect_wrap"><span class="text_effect_wrap1"><span
-                      class="text_effect_wrap2"><span class="text_effect_wrap3">Enjoy our tools</span></span></span>
+                      class="text_effect_wrap2"><span class="text_effect_wrap3" data-i18n="portfolio.subtitle">Enjoy our tools</span></span></span>
                 </h3>
               </div>
             </div>
@@ -195,7 +195,7 @@
               <a class="portfolio_fullimage_layout popup_video" href="https://player.bilibili.com/player.html?bvid=BV1sh4y1z7Xs&p=1&autoplay=1&danmaku=0">
                 <img src="assets/images/portfolio/portfolio_2col_3.webp" alt="image_not_found">
                   <span class="item_content">
-                    <strong class="item_title">Check the Video
+                    <strong class="item_title" data-i18n="portfolio.checkVideo">Check the Video
                       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
                     </strong>
                   </span>
@@ -207,7 +207,7 @@
                 <img src="assets/images/portfolio/portfolio_2col_7.webp"
                   alt="image_not_found"><span class="item_content">
                     
-                    <strong class="item_title">Check the Video
+                    <strong class="item_title" data-i18n="portfolio.checkVideo">Check the Video
                       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"/></svg>
                     </strong>
                   </span></a>
@@ -223,15 +223,15 @@
           <div class="row justify-content-lg-between">
             <div class="col-lg-4 col-md-5">
               <div class="section_title">
-                <h2 class="small_title">Clients <span class="line"></span></h2>
+                <h2 class="small_title" data-i18n="testimonial.title">Clients <span class="line"></span></h2>
                 <h3 class="big_title mb-0 text_effect_wrap"><span class="text_effect_wrap1"><span
                       class="text_effect_wrap2">
-                      <span class="text_effect_wrap3">Bring </span></span></span><span class="text_effect_wrap1">
-                    <span class="text_effect_wrap2"><span class="text_effect_wrap3"> efficiency to </span></span></span>
-                  <span class="text_effect_wrap1"><span class="text_effect_wrap2"><span class="text_effect_wrap3">our
+                      <span class="text_effect_wrap3" data-i18n="testimonial.subtitle1">Bring </span></span></span><span class="text_effect_wrap1">
+                    <span class="text_effect_wrap2"><span class="text_effect_wrap3" data-i18n="testimonial.subtitle2"> efficiency to </span></span></span>
+                  <span class="text_effect_wrap1"><span class="text_effect_wrap2"><span class="text_effect_wrap3" data-i18n="testimonial.subtitle3">our
                       </span>
                     </span></span><span class="text_effect_wrap1"><span class="text_effect_wrap2"><span
-                        class="text_effect_wrap3">user.</span>
+                        class="text_effect_wrap3" data-i18n="testimonial.subtitle4">user.</span>
                     </span></span>
                 </h3>
               </div>
@@ -250,7 +250,7 @@
                               stroke="#646464" stroke-miterlimit="10" />
                           </svg>
                         </div>
-                        <p>I should be the early group of users who own this product, Although it was great when I got
+                        <p data-i18n="testimonial.duke.text">I should be the early group of users who own this product, Although it was great when I got
                           the first version, but after the deep discussion with the designer, now I have another perfect
                           one.
                           They help me a lot not only in my daily practice of latte art, but also at the coffee tasting
@@ -268,8 +268,8 @@
                       </div>
                       <div class="client_info">
                         <div class="line"></div>
-                        <h4 class="client_name text-uppercase">Duke</h4>
-                        <span class="client_title">Musician, Coffee roaster, Artist</span>
+                        <h4 class="client_name text-uppercase" data-i18n="testimonial.duke.name">Duke</h4>
+                        <span class="client_title" data-i18n="testimonial.duke.title">Musician, Coffee roaster, Artist</span>
                       </div>
                     </div>
                   </div>
@@ -284,7 +284,7 @@
                               stroke="#646464" stroke-miterlimit="10" />
                           </svg>
                         </div>
-                        <p>This bean-doser is the soulmate of my single dose grinders, with the high precision it can
+                        <p data-i18n="testimonial.jason.text">This bean-doser is the soulmate of my single dose grinders, with the high precision it can
                           speed up the coffee making process, which makes my customers could get a cup of high-quality
                           coffee in a short time. I definitly will get another one for my new cafe shop
                         </p>
@@ -300,8 +300,8 @@
                       </div>
                       <div class="client_info">
                         <div class="line"></div>
-                        <h4 class="client_name text-uppercase">Jason</h4>
-                        <span class="client_title">Onwer of #Break Order# Cafe</span>
+                        <h4 class="client_name text-uppercase" data-i18n="testimonial.jason.name">Jason</h4>
+                        <span class="client_title" data-i18n="testimonial.jason.title">Onwer of #Break Order# Cafe</span>
                       </div>
                     </div>
                   </div>
@@ -316,7 +316,7 @@
                               stroke="#646464" stroke-miterlimit="10" />
                           </svg>
                         </div>
-                        <p>This smart scale tramsformed my grinder into a GBW version, therefore I could gainng the perfect weight of coffee powder and reduced the deliever speed.
+                        <p data-i18n="testimonial.bin.text">This smart scale tramsformed my grinder into a GBW version, therefore I could gainng the perfect weight of coffee powder and reduced the deliever speed.
                           The key point is my GBW grinder not cost me over 10 thousand.
                         </p>
                       </div>
@@ -326,8 +326,8 @@
                       </div>
                       <div class="client_info">
                         <div class="line"></div>
-                        <h4 class="client_name text-uppercase">Bin</h4>
-                        <span class="client_title">Owner of Lucky Cafe</span>
+                        <h4 class="client_name text-uppercase" data-i18n="testimonial.bin.name">Bin</h4>
+                        <span class="client_title" data-i18n="testimonial.bin.title">Owner of Lucky Cafe</span>
                       </div>
                     </div>
                   </div>
@@ -342,7 +342,7 @@
                               stroke="#646464" stroke-miterlimit="10" />
                           </svg>
                         </div>
-                        <p>Who says grace not belong to beginners? I enjoy the coffee making process, but it must be in a
+                        <p data-i18n="testimonial.eggy.text">Who says grace not belong to beginners? I enjoy the coffee making process, but it must be in a
                           efficent way, and these tools make the possibility happen.
                           Someone may say that not worthy, but what if it could make you happy?
                         </p>
@@ -352,8 +352,8 @@
                       </div>
                       <div class="client_info">
                         <div class="line"></div>
-                        <h4 class="client_name text-uppercase">Miss Eggy</h4>
-                        <span class="client_title">Project Manager, Coffee hobbyist</span>
+                        <h4 class="client_name text-uppercase" data-i18n="testimonial.eggy.name">Miss Eggy</h4>
+                        <span class="client_title" data-i18n="testimonial.eggy.title">Project Manager, Coffee hobbyist</span>
                       </div>
                     </div>
                   </div>                
@@ -370,7 +370,7 @@
     <!-- main body - end ================================================== -->
     <!-- footer_section - start ================================================== -->
     <footer class="footer_section">
-      <h2 class="big_title text-center">Make coffee easier</h2>
+      <h2 class="big_title text-center" data-i18n="footer.motto">Make coffee easier</h2>
       <div class="container">
         <div class="footer_widget_area">
           <div class="row">
@@ -379,7 +379,7 @@
                 <div class="footer_copyright">
                   <div class="footer-logo"><img src="assets/images/logo/logo_2_1.webp"
                       alt="logo_not_found"></div>
-                  <p class="mb-0">© 2023 all right By Sharka Coffee</p>
+                  <p class="mb-0" data-i18n="footer.copyright">© 2023 all right By Sharka Coffee</p>
                 </div>
               </div>
             </div>
@@ -387,7 +387,7 @@
             
             <div class="col-lg-6 col-md-4 col-sm-4" id="social">
               <div class="footer_widget social_text_layout">
-                <h3 class="footer_widget_title text-uppercase">Social Links</h3>
+                <h3 class="footer_widget_title text-uppercase" data-i18n="footer.socialLinks">Social Links</h3>
                 <ul class="ul_li_block">
                   <li><a href="#!">Bilibili<img style="width:97px" src='assets/images/meta/bilibili-qr.webp' /></a></li>
                   <li><a href="#!">Wechat<img src='assets/images/meta/wechat-qr.webp' /></a></li>
@@ -404,10 +404,38 @@
   <!-- body_wrap - end -->
   <!-- framwork - jquery include -->
   <script src="assets/js/jquery.min.js"></script>
+  <script>
+    // 完全禁用 jQuery Deferred 异常报告
+    (function() {
+      if (window.jQuery) {
+        // 禁用 Deferred 异常钩子
+        if (jQuery.Deferred && jQuery.Deferred.exceptionHook) {
+          jQuery.Deferred.exceptionHook = function() {};
+        }
+        
+        // 覆盖全局错误处理
+        const originalError = window.onerror;
+        window.onerror = function(msg, url, line, col, error) {
+          // 忽略 jQuery 相关错误
+          if (msg && (msg.indexOf('jQuery') !== -1 || msg.indexOf('Deferred') !== -1)) {
+            return true; // 阻止默认错误处理
+          }
+          // 调用原始错误处理器
+          if (originalError) {
+            return originalError(msg, url, line, col, error);
+          }
+        };
+      }
+    })();
+  </script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script><!-- jquery plugins -->
   <script src="assets/js/jquery-plugins-collection.js"></script><!-- custom js -->
   <script src="assets/js/main.js"></script>
+  <!-- i18n language switcher -->
+  <script src="assets/js/lang-switcher.js"></script>
+  <!-- product loader -->
+  <script src="assets/js/product-loader.js"></script>
 </body>
 
 </html>
