@@ -19,15 +19,18 @@ const i18n = {
       products: {
         beancounter: 'MG-BEANCOUNTER',
         grinderScale: 'GRINDER-SCALE',
-        beanDoser: 'SC-Bean Doser',
-        grinderScaleFull: 'SC-Grinder Scale',
+        beanDoser: 'BC-Turbo Bean Doser',
+        grinderScaleFull: 'Grinder Scale',
         coffeeder: 'Coffeeder'
       },
       
       // Slider section
       slider: {
+        beanDoser: 'BC-Turbo Bean Doser',
+        coffeeder: 'Coffeeder',
         beanDoserDesc: 'precisely dosing the beans to weight.Parse a bag of fresh coffee to single-doses, or use to dose before grinding.',
         grinderScaleDesc: 'Collaborate with the grinder for continual cup grinding, high precise weighting and auto offset caculation to speed-up the process of coffee making.',
+        coffeederDesc: 'Gear-Driven Slow Bean Feeder for Coffee Grinders. By controlling the bean feeding speed, it reduces fines production and improves coffee flavor.',
         detailBtn: 'Detail'
       },
       
@@ -114,15 +117,18 @@ const i18n = {
       products: {
         beancounter: 'MG-分豆器',
         grinderScale: '定重秤',
-        beanDoser: 'SC-Bean Doser',
-        grinderScaleFull: 'SC-Grinder Scale',
+        beanDoser: 'BC-Turbo Doser',
+        grinderScaleFull: 'Grinder Scale',
         coffeeder: 'Coffeeder 慢速下豆器'
       },
       
       // 轮播图部分
       slider: {
+        beanDoser: 'BC-Turbo数豆机',
+        coffeeder: 'Coffeeder 慢速下豆器',
         beanDoserDesc: '按重量自动称取咖啡豆，可将一包新鲜的咖啡豆高效且精确得分装为单剂量, 也可以配合单剂量磨豆机直接使用',
         grinderScaleDesc: '和您的磨豆机配合使用连续研磨出杯。高精度以及自动偏移量校准功能加速出杯流程',
+        coffeederDesc: '齿轮驱动的磨豆机慢速下豆装置。通过控制下豆速度，减少研磨过程中的细粉产生，改善咖啡风味。',
         detailBtn: 'Detail'
       },
       
