@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeanCounter BLE OTA</title>
+<style>
+  :root {
+    --bg:     #1a1a2e;
+    --card:   #16213e;
+    --accent: #e94560;
+    --ok:     #0f9b58;
+    --warn:   #f0a500;
+    --text:   #eaeaea;
+    --muted:  #8899aa;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px;
+  }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; letter-spacing: 1px; }
+  .subtitle { color: var(--muted); font-size: 0.85rem; margin-bottom: 28px; }
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  .card h2 { font-size: 1rem; color: var(--muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .row { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  button:active { transform: scale(0.97); }
+  button:disabled { opacity: 0.35; cursor: not-allowed; }
+  .btn-primary  { background: var(--accent); color: #fff; }
+  .btn-ok       { background: var(--ok);     color: #fff; }
+  .btn-secondary{ background: #2d3a50;        color: var(--text); }
+  .status-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+  }
+  .status-dot.connected   { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
+  .status-dot.connecting  { background: var(--warn); animation: pulse 1s infinite; }
+  .status-dot.error       { background: var(--accent); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  #status-text { font-size: 0.9rem; color: var(--muted); }
+  .file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2d3a50;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: background 0.15s;
+  }
+  .file-label:hover { background: #3a4a60; }
+  #file-name { font-size: 0.85rem; color: var(--muted); margin-left: 6px; }
+  #file-input { display: none; }
+  .progress-wrap {
+    background: #2d3a50;
+    border-radius: 6px;
+    height: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  #progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--ok), #00d4aa);
+    border-radius: 6px;
+    transition: width 0.3s;
+  }
+  #progress-text { font-size: 0.82rem; color: var(--muted); text-align: right; margin-bottom: 12px; }
+  #speed-text { font-size: 0.80rem; color: var(--ok); text-align: right; margin-bottom: 12px; min-height: 1.2em; }
+  #log {
+    background: #0d1117;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.78rem;
+    color: #7fbc8c;
+    height: 180px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .note {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+  .note a { color: #6ab4f5; }
+</style>
+</head>
+<body>
+
+<h1>☕ BeanCounter OTA</h1>
+<p class="subtitle">Wireless firmware update via Bluetooth</p>
+
+<!-- Connection card -->
+<div class="card">
+  <h2>设备连接</h2>
+  <div class="row">
+    <div class="status-dot" id="dot"></div>
+    <span id="status-text">未连接</span>
+    <button class="btn-primary" id="btn-connect" style="margin-left:auto">连接设备</button>
+    <button class="btn-secondary" id="btn-disconnect" disabled>断开</button>
+  </div>
+  <div style="font-size:0.8rem;color:var(--muted)">
+    设备名称格式：<code>BeanCounter_XXXX</code>（最后4位芯片ID）
+  </div>
+</div>
+
+<!-- Upload card -->
+<div class="card">
+  <h2>固件上传</h2>
+  <div class="row">
+    <label class="file-label" for="file-input">选择 .bin 文件</label>
+    <span id="file-name">未选择文件</span>
+    <input type="file" id="file-input" accept=".bin">
+  </div>
+  <div class="progress-wrap"><div id="progress-bar"></div></div>
+  <div id="progress-text">0 / 0 parts</div>
+  <div id="speed-text"></div>
+  <div class="row">
+    <button class="btn-ok" id="btn-upload" disabled>开始上传</button>
+    <span id="upload-status" style="font-size:0.85rem;color:var(--muted);margin-left:8px"></span>
+  </div>
+</div>
+
+<!-- Log card -->
+<div class="card">
+  <h2>日志</h2>
+  <div id="log"></div>
+</div>
+
+<p class="note">
+  需要 Chrome 或 Edge 浏览器，且页面必须通过 HTTPS 或 localhost 访问。<br>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API" target="_blank">
+    Web Bluetooth API 浏览器兼容性 →</a>
+</p>
+
+<script>
+// ─── UUIDs (must match firmware) ────────────────────────────────────────────
+const SERVICE_UUID = 'fe590001-54ae-4a28-9f74-dfccb248601d';
+const RX_UUID      = 'fe590002-54ae-4a28-9f74-dfccb248601d';  // client → device
+const TX_UUID      = 'fe590003-54ae-4a28-9f74-dfccb248601d';  // device → client (notify)
+
+// ─── Transfer parameters ─────────────────────────────────────────────────────
+const PART_SIZE = 8192;   // bytes per "part" — must match firmware OTA_PART_SIZE
+const MTU       = 240;    // BLE payload bytes per 0xFB packet (fits negotiated MTU 243)
+
+// ─── State ───────────────────────────────────────────────────────────────────
+let bleDevice     = null;
+let bleServer     = null;
+let rxChar        = null;
+let txChar        = null;
+let notifyResolve = null;   // resolve() of the current waitForNotification promise
+
+// ─── DOM refs ────────────────────────────────────────────────────────────────
+const dot          = document.getElementById('dot');
+const statusText   = document.getElementById('status-text');
+const btnConnect   = document.getElementById('btn-connect');
+const btnDisconnect= document.getElementById('btn-disconnect');
+const fileInput    = document.getElementById('file-input');
+const fileNameSpan = document.getElementById('file-name');
+const progressBar  = document.getElementById('progress-bar');
+const progressText = document.getElementById('progress-text');
+const speedText    = document.getElementById('speed-text');
+const btnUpload    = document.getElementById('btn-upload');
+const uploadStatus = document.getElementById('upload-status');
+const logEl        = document.getElementById('log');
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+function log(msg) {
+  const ts = new Date().toTimeString().slice(0, 8);
+  logEl.textContent += `[${ts}] ${msg}\n`;
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function setDot(state) {   // 'idle' | 'connecting' | 'connected' | 'error'
+  dot.className = 'status-dot ' + (state !== 'idle' ? state : '');
+}
+
+function setProgress(done, total, bytesWritten, elapsedMs) {
+  const pct = total > 0 ? Math.round(done / total * 100) : 0;
+  progressBar.style.width = pct + '%';
+  progressText.textContent = `${done} / ${total} parts  (${pct}%)`;
+  if (elapsedMs > 0 && bytesWritten > 0) {
+    const kbps = (bytesWritten / 1024 / (elapsedMs / 1000)).toFixed(1);
+    const eta  = total > done ? Math.round((total - done) / done * elapsedMs / 1000) : 0;
+    speedText.textContent = `${kbps} KB/s${eta > 0 ? '  •  ETA ' + eta + 's' : ''}`;
+  }
+}
+
+function updateConnectedUI(connected) {
+  btnConnect.disabled    = connected;
+  btnDisconnect.disabled = !connected;
+  btnUpload.disabled     = !connected || !fileInput.files.length;
+}
+
+// ─── Notification handler (one-at-a-time promise) ────────────────────────────
+function handleNotification(event) {
+  const data = new Uint8Array(event.target.value.buffer);
+  if (notifyResolve) {
+    const fn = notifyResolve;
+    notifyResolve = null;
+    fn(data);
+  }
+}
+
+function waitForNotify(timeoutMs = 30000) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      notifyResolve = null;
+      reject(new Error('BLE notification timeout'));
+    }, timeoutMs);
+    notifyResolve = (data) => {
+      clearTimeout(timer);
+      resolve(data);
+    };
+  });
+}
+
+// ─── BLE connect ─────────────────────────────────────────────────────────────
+btnConnect.addEventListener('click', async () => {
+  if (!navigator.bluetooth) {
+    alert('此浏览器不支持 Web Bluetooth API。请使用 Chrome 或 Edge，并确保在 HTTPS 或 localhost 下访问。');
+    return;
+  }
+  try {
+    setDot('connecting');
+    statusText.textContent = '扫描中…';
+    log('Scanning for BeanCounter devices…');
+
+    bleDevice = await navigator.bluetooth.requestDevice({
+      filters: [{ services: [SERVICE_UUID] }],
+      optionalServices: [SERVICE_UUID]
+    });
+
+    bleDevice.addEventListener('gattserverdisconnected', onDisconnected);
+
+    log(`Found: ${bleDevice.name}`);
+    statusText.textContent = '连接中…';
+
+    bleServer = await bleDevice.gatt.connect();
+    const service = await bleServer.getPrimaryService(SERVICE_UUID);
+    rxChar = await service.getCharacteristic(RX_UUID);
+    txChar = await service.getCharacteristic(TX_UUID);
+
+    await txChar.startNotifications();
+    txChar.addEventListener('characteristicvaluechanged', handleNotification);
+
+    setDot('connected');
+    statusText.textContent = `已连接：${bleDevice.name}`;
+    log(`Connected to ${bleDevice.name}`);
+    updateConnectedUI(true);
+  } catch (err) {
+    setDot('error');
+    statusText.textContent = '连接失败';
+    log(`Connect error: ${err.message}`);
+    updateConnectedUI(false);
+  }
+});
+
+// ─── BLE disconnect ───────────────────────────────────────────────────────────
+btnDisconnect.addEventListener('click', () => {
+  if (bleDevice && bleDevice.gatt.connected) {
+    bleDevice.gatt.disconnect();
+  }
+});
+
+function onDisconnected() {
+  setDot('idle');
+  statusText.textContent = '已断开';
+  log('Device disconnected');
+  updateConnectedUI(false);
+  rxChar = null;
+  txChar = null;
+}
+
+// ─── File picker ─────────────────────────────────────────────────────────────
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  fileNameSpan.textContent = file ? `${file.name}  (${(file.size / 1024).toFixed(1)} KB)` : '未选择文件';
+  btnUpload.disabled = !file || !rxChar;
+});
+
+// ─── OTA upload ──────────────────────────────────────────────────────────────
+btnUpload.addEventListener('click', async () => {
+  const file = fileInput.files[0];
+  if (!file || !rxChar) return;
+
+  btnUpload.disabled    = true;
+  btnDisconnect.disabled= true;
+  uploadStatus.textContent = '上传中…';
+  speedText.textContent = '';
+  setProgress(0, 0, 0, 0);
+  log(`Starting OTA: ${file.name}  ${file.size} bytes`);
+
+  try {
+    const firmware   = new Uint8Array(await file.arrayBuffer());
+    const fileSize   = firmware.length;
+    const totalParts = Math.ceil(fileSize / PART_SIZE);
+    log(`Parts: ${totalParts}, MTU: ${MTU}, PART_SIZE: ${PART_SIZE}`);
+    const startTime  = Date.now();
+
+    // ── Step 1: Handshake (0xFD) ──────────────────────────────────────────
+    log('→ 0xFD reset');
+    await rxChar.writeValueWithoutResponse(new Uint8Array([0xFD]));
+    const ackReset = await waitForNotify(5000);
+    if (ackReset[0] !== 0xAA) throw new Error(`Expected 0xAA, got 0x${ackReset[0].toString(16)}`);
+    const mode = ackReset[1];
+    log(`← 0xAA (mode=${mode === 1 ? '1 fast' : '0 slow'})`);
+    const fastMode = (mode === 1);
+    log(`→ 0xFE size=${fileSize}`);
+    await rxChar.writeValueWithoutResponse(new Uint8Array([
+      0xFE,
+      (fileSize >>> 24) & 0xFF,
+      (fileSize >>> 16) & 0xFF,
+      (fileSize >>>  8) & 0xFF,
+       fileSize         & 0xFF
+    ]));
+
+    // ── Step 3: Parts & MTU (0xFF) ────────────────────────────────────────
+    log(`→ 0xFF parts=${totalParts} mtu=${MTU}`);
+    await rxChar.writeValueWithoutResponse(new Uint8Array([
+      0xFF,
+      (totalParts >>> 8) & 0xFF,
+       totalParts        & 0xFF,
+      (MTU        >>> 8) & 0xFF,
+       MTU               & 0xFF
+    ]));
+
+    // ── Step 4: Stream parts ──────────────────────────────────────────────
+    for (let partIdx = 0; partIdx < totalParts; partIdx++) {
+      const partStart = partIdx * PART_SIZE;
+      const partEnd   = Math.min(partStart + PART_SIZE, fileSize);
+      const partData  = firmware.slice(partStart, partEnd);
+
+      // Send 0xFB chunk packets
+      let chunkIdx = 0;
+      for (let offset = 0; offset < partData.length; offset += MTU) {
+        const chunk  = partData.slice(offset, Math.min(offset + MTU, partData.length));
+        const packet = new Uint8Array(2 + chunk.length);
+        packet[0] = 0xFB;
+        packet[1] = chunkIdx & 0xFF;
+        packet.set(chunk, 2);
+        await rxChar.writeValueWithoutResponse(packet);
+        chunkIdx++;
+      }
+
+      // Send 0xFC flush
+      const pLen = partData.length;
+      await rxChar.writeValueWithoutResponse(new Uint8Array([
+        0xFC,
+        (pLen    >>> 8) & 0xFF,
+         pLen           & 0xFF,
+        (partIdx >>> 8) & 0xFF,
+         partIdx        & 0xFF
+      ]));
+
+      setProgress(partIdx + 1, totalParts, (partIdx + 1) * PART_SIZE, Date.now() - startTime);
+
+      if (!fastMode && partIdx < totalParts - 1) {
+        // Slow mode only: wait for device to request next part (0xF1)
+        const req = await waitForNotify(30000);
+        if (req[0] !== 0xF1) throw new Error(`Expected 0xF1, got 0x${req[0].toString(16)}`);
+        const nextPart = (req[1] << 8) | req[2];
+        if (nextPart !== partIdx + 1) log(`⚠ Device requested part ${nextPart}, expected ${partIdx + 1}`);
+      }
+    }
+
+    // ── Step 5: Wait for 0xF2 (all received) ─────────────────────────────
+    const f2 = await waitForNotify(30000);
+    if (f2[0] !== 0xF2) throw new Error(`Expected 0xF2, got 0x${f2[0].toString(16)}`);
+    log('← 0xF2: all parts received, flashing…');
+
+    // ── Step 6: Wait for 0x0F (result) ───────────────────────────────────
+    const result = await waitForNotify(30000);
+    if (result[0] !== 0x0F) throw new Error(`Expected 0x0F result, got 0x${result[0].toString(16)}`);
+    const msg = new TextDecoder().decode(result.slice(1));
+    log(`← 0x0F: ${msg}`);
+
+    uploadStatus.textContent = '✓ 上传成功，设备重启中…';
+    log('OTA complete! Device is rebooting.');
+
+  } catch (err) {
+    uploadStatus.textContent = `✗ 失败: ${err.message}`;
+    log(`ERROR: ${err.message}`);
+    setDot('error');
+  } finally {
+    btnUpload.disabled     = false;
+    btnDisconnect.disabled = !bleDevice?.gatt?.connected;
+  }
+});
+</script>
+</body>
+</html>
