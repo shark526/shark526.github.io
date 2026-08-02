@@ -113,6 +113,17 @@
     line-height: 1.5;
   }
   .note a { color: #6ab4f5; }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #2d3a50;
+  }
+  .info-cell { display: flex; flex-direction: column; gap: 3px; }
+  .info-cell .lbl { font-size: 0.72rem; color: var(--muted); }
+  .info-cell .val { font-size: 0.90rem; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -131,6 +142,21 @@
   </div>
   <div style="font-size:0.8rem;color:var(--muted)">
     设备名称格式：<code>BeanCounter_XXXX</code>（最后4位芯片ID）
+  </div>
+  <!-- 连接后显示设备信息 -->
+  <div class="info-grid" id="device-info" style="display:none">
+    <div class="info-cell">
+      <span class="lbl">固件版本</span>
+      <span class="val" id="info-fw" style="color:var(--ok)">--</span>
+    </div>
+    <div class="info-cell">
+      <span class="lbl">硬件版本</span>
+      <span class="val" id="info-hw">--</span>
+    </div>
+    <div class="info-cell">
+      <span class="lbl">电池电量</span>
+      <span class="val" id="info-bat">--</span>
+    </div>
   </div>
 </div>
 
@@ -195,6 +221,32 @@ const uploadStatus = document.getElementById('upload-status');
 const logEl        = document.getElementById('log');
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
+function parseVersionFromAck(ack) {
+  let fwVersion = 'N/A', hwVersion = 'N/A', battery = -1;
+  if (ack.length <= 2) return { fwVersion, hwVersion, battery };
+  try {
+    const fwLen = ack[2];
+    if (fwLen > 0 && 3 + fwLen <= ack.length)
+      fwVersion = new TextDecoder().decode(ack.slice(3, 3 + fwLen));
+    const hwOffset = 3 + fwLen;
+    if (hwOffset < ack.length) {
+      const hwLen = ack[hwOffset];
+      if (hwLen > 0 && hwOffset + 1 + hwLen <= ack.length)
+        hwVersion = new TextDecoder().decode(ack.slice(hwOffset + 1, hwOffset + 1 + hwLen));
+      const batOffset = hwOffset + 1 + (ack[hwOffset] || 0);
+      if (batOffset < ack.length) battery = ack[batOffset];
+    }
+  } catch(e) {}
+  return { fwVersion, hwVersion, battery };
+}
+
+function showDeviceInfo(fw, hw, bat) {
+  document.getElementById('info-fw').textContent  = fw;
+  document.getElementById('info-hw').textContent  = hw;
+  document.getElementById('info-bat').textContent = bat >= 0 ? bat + '%' : 'N/A';
+  document.getElementById('device-info').style.display = '';
+}
+
 function log(msg) {
   const ts = new Date().toTimeString().slice(0, 8);
   logEl.textContent += `[${ts}] ${msg}\n`;
@@ -278,6 +330,19 @@ btnConnect.addEventListener('click', async () => {
     statusText.textContent = `已连接：${bleDevice.name}`;
     log(`Connected to ${bleDevice.name}`);
     updateConnectedUI(true);
+
+    // 查询设备信息（0xFD 握手）
+    try {
+      await rxChar.writeValueWithoutResponse(new Uint8Array([0xFD]));
+      const ackInfo = await waitForNotify(5000);
+      if (ackInfo[0] === 0xAA) {
+        const { fwVersion, hwVersion, battery } = parseVersionFromAck(ackInfo);
+        showDeviceInfo(fwVersion, hwVersion, battery);
+        log(`Device: fw=${fwVersion}  hw=${hwVersion}  bat=${battery >= 0 ? battery + '%' : 'N/A'}`);
+      }
+    } catch(e) {
+      log(`Device info query failed: ${e.message}`);
+    }
   } catch (err) {
     setDot('error');
     statusText.textContent = '连接失败';
@@ -298,6 +363,7 @@ function onDisconnected() {
   statusText.textContent = '已断开';
   log('Device disconnected');
   updateConnectedUI(false);
+  document.getElementById('device-info').style.display = 'none';
   rxChar = null;
   txChar = null;
 }
@@ -336,6 +402,9 @@ btnUpload.addEventListener('click', async () => {
     const mode = ackReset[1];
     log(`← 0xAA (mode=${mode === 1 ? '1 fast' : '0 slow'})`);
     const fastMode = (mode === 1);
+    // 同步更新设备信息（版本 + 电池）
+    const { fwVersion, hwVersion, battery } = parseVersionFromAck(ackReset);
+    showDeviceInfo(fwVersion, hwVersion, battery);
     log(`→ 0xFE size=${fileSize}`);
     await rxChar.writeValueWithoutResponse(new Uint8Array([
       0xFE,
