@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowClick / Key Mapping</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/lucide.min.js"></script>
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><i data-lucide="keyboard" aria-hidden="true"></i><h1>FlowClick</h1><span class="edition">C3 / 04</span></div>
+    <div class="connection"><span id="connection-state" class="indicator">Disconnected</span><button id="connect"><i data-lucide="bluetooth" aria-hidden="true"></i>Connect</button><button id="disconnect" title="Disconnect" aria-label="Disconnect" class="icon-button" disabled><i data-lucide="bluetooth-off" aria-hidden="true"></i></button></div>
+  </header>
+  <main>
+    <div class="section-heading"><div><p class="eyebrow">DEVICE CONFIGURATION</p><h2>Key Mapping</h2></div><span id="mode" class="mode">No device</span></div>
+    <div class="column-head" aria-hidden="true"><span>KEY / GPIO</span><span>MODIFIERS</span><span>MAIN KEY</span><span>ACTIVE</span></div>
+    <form id="mappings" aria-label="Key mappings"><div id="rows"></div><div class="power-settings"><label for="idle-sleep"><i data-lucide="moon" aria-hidden="true"></i>Idle sleep</label><select id="idle-sleep" class="key-select" disabled><option value="0">Disabled</option><option value="30">30 seconds</option><option value="60">1 minute</option><option value="120">2 minutes</option><option value="300">5 minutes</option><option value="600">10 minutes</option><option value="1800">30 minutes</option><option value="3600">1 hour</option></select></div></form>
+    <footer class="toolbar"><div id="save-state" role="status">Not loaded</div><div class="actions"><button id="reset" disabled><i data-lucide="rotate-ccw" aria-hidden="true"></i>Defaults</button><button id="read" disabled><i data-lucide="download" aria-hidden="true"></i>Read</button><button id="save" class="primary" disabled><i data-lucide="save" aria-hidden="true"></i>Save</button></div></footer>
+    <div id="message" role="alert" hidden></div>
+    <div class="device-footer"><span>FLOWCLICK / BLE HID</span><span>CONFIG SCHEMA 02</span></div>
+  </main>
+  <dialog id="confirm-dialog"><form method="dialog"><h2 id="confirm-title">Confirm</h2><p id="confirm-text"></p><div class="actions"><button value="cancel">Cancel</button><button value="confirm" class="primary">Confirm</button></div></form></dialog>
+</body>
+</html>
